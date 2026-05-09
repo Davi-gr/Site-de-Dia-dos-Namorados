@@ -3,32 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nosso Presente</title>
+  <title>Criar Presente</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main class="container">
-    <section class="story active">
-      <h1>Nosso Amor em Memórias ❤️</h1>
-      <p>Uma retrospectiva especial feita para nós dois.</p>
-      <button onclick="proximoStory()">Começar</button>
-    </section>
+  <main class="form-container">
+    <h1>Crie seu presente ❤️</h1>
+    <p>Preencha as informações para montar a retrospectiva do casal.</p>
 
-    <section class="story">
-      <h2>Como tudo começou</h2>
-      <p>Aqui entra a história do casal...</p>
-    </section>
+    <form id="formPresente">
+      <label>Nome do casal</label>
+      <input type="text" id="nomeCasal" placeholder="Ex: Ana & Lucas" required>
 
-    <section class="story">
-      <h2>Nossa música</h2>
-      <p>A música que marcou nossa história.</p>
-    </section>
+      <label>História do casal</label>
+      <textarea id="historia" placeholder="Conte como tudo começou..." required></textarea>
 
-    <section class="story">
-      <h2>Momentos inesquecíveis</h2>
-      <p>Fotos, datas e lembranças especiais.</p>
-    </section>
+      <label>Música do casal</label>
+      <input type="text" id="musica" placeholder="Ex: Perfect - Ed Sheeran">
+
+      <label>Momento inesquecível</label>
+      <textarea id="momento" placeholder="Ex: Nossa primeira viagem..."></textarea>
+
+      <button type="submit">Criar presente</button>
+    </form>
   </main>
 
   <script src="script.js"></script>

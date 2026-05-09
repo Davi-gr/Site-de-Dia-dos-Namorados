@@ -5,17 +5,80 @@
 }
 
 body {
-  background: linear-gradient(135deg, #ff4f81, #ff8fab);
   font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff4f81, #ff8fab);
   color: white;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+/* Página do formulário */
+
+.form-container {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.form-container h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-container p {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #ff4f81;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Página dos stories */
+
+.presente-page {
   overflow: hidden;
 }
 
-.container {
+.stories-container {
   width: 100%;
   height: 100vh;
-  display: flex;
 }
 
 .story {
@@ -33,24 +96,14 @@ body {
   display: flex;
 }
 
-h1, h2 {
+.story h1,
+.story h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-p {
+.story p {
   font-size: 1.2rem;
   max-width: 500px;
-  margin-bottom: 30px;
-}
-
-button {
-  background: white;
-  color: #ff4f81;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
+  line-height: 1.5;
 }
