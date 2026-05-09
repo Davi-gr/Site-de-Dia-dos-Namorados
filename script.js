@@ -1,14 +1,49 @@
+let etapaAtual = 0;
 let storyAtual = 0;
-const stories = document.querySelectorAll(".story");
 
+const etapas = document.querySelectorAll(".form-step");
+const stories = document.querySelectorAll(".story");
 const formPresente = document.getElementById("formPresente");
+
+function mostrarEtapa() {
+  etapas.forEach(function(etapa) {
+    etapa.classList.remove("active");
+  });
+
+  etapas[etapaAtual].classList.add("active");
+
+  const etapaTexto = document.getElementById("etapaTexto");
+  const progressFill = document.getElementById("progressFill");
+
+  if (etapaTexto && progressFill) {
+    etapaTexto.textContent = "Etapa " + (etapaAtual + 1) + " de " + etapas.length;
+
+    const progresso = ((etapaAtual + 1) / etapas.length) * 100;
+    progressFill.style.width = progresso + "%";
+  }
+}
+
+function voltarEtapa() {
+  etapaAtual--;
+
+  if (etapaAtual < 0) {
+    etapaAtual = 0;
+  }
+
+  mostrarEtapa();
+}
 
 if (formPresente) {
   formPresente.addEventListener("submit", function(event) {
     event.preventDefault();
 
+    const parceiro1 = document.getElementById("parceiro1").value;
+    const parceiro2 = document.getElementById("parceiro2").value;
+
     const dadosPresente = {
-      nomeCasal: document.getElementById("nomeCasal").value,
+      nomeCasal: parceiro1 + " & " + parceiro2,
+      parceiro1: parceiro1,
+      parceiro2: parceiro2,
       historia: document.getElementById("historia").value,
       musica: document.getElementById("musica").value,
       momento: document.getElementById("momento").value

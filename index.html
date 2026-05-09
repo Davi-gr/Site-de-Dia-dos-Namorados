@@ -10,22 +10,63 @@
 
   <main class="form-container">
     <h1>Crie seu presente ❤️</h1>
-    <p>Preencha as informações para montar a retrospectiva do casal.</p>
 
     <form id="formPresente">
-      <label>Nome do casal</label>
-      <input type="text" id="nomeCasal" placeholder="Ex: Ana & Lucas" required>
+        
+        <div class="form-progress">
+        <div class="progress-text">
+            <span id="etapaTexto">Etapa 1 de 4</span>
+        </div>
 
-      <label>História do casal</label>
-      <textarea id="historia" placeholder="Conte como tudo começou..." required></textarea>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        </div>
 
-      <label>Música do casal</label>
-      <input type="text" id="musica" placeholder="Ex: Perfect - Ed Sheeran">
+      <section class="form-step active">
+        <h2>Quem são vocês?</h2>
 
-      <label>Momento inesquecível</label>
-      <textarea id="momento" placeholder="Ex: Nossa primeira viagem..."></textarea>
+        <label>Nome do parceiro 1</label>
+        <input type="text" id="parceiro1" required>
 
-      <button type="submit">Criar presente</button>
+        <label>Nome do parceiro 2</label>
+        <input type="text" id="parceiro2" required>
+
+        <button type="button" onclick="proximaEtapa()">Continuar</button>
+      </section>
+
+      <section class="form-step">
+        <h2>Como tudo começou?</h2>
+
+        <label>Conte a história do casal</label>
+        <textarea id="historia" required></textarea>
+
+        <button type="button" onclick="voltarEtapa()">Voltar</button>
+        <button type="button" onclick="proximaEtapa()">Continuar</button>
+      </section>
+
+      <section class="form-step">
+        <h2>Momentos especiais</h2>
+
+        <label>Qual foi um momento inesquecível?</label>
+        <textarea id="momento"></textarea>
+
+        <label>Qual é a música do casal?</label>
+        <input type="text" id="musica">
+
+        <button type="button" onclick="voltarEtapa()">Voltar</button>
+        <button type="button" onclick="proximaEtapa()">Continuar</button>
+      </section>
+
+      <section class="form-step">
+        <h2>Finalizar presente</h2>
+
+        <p>Agora é só criar a retrospectiva personalizada de vocês.</p>
+
+        <button type="button" onclick="voltarEtapa()">Voltar</button>
+        <button type="submit">Criar presente</button>
+      </section>
+
     </form>
   </main>
 
