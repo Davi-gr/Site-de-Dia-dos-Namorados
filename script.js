@@ -5,6 +5,10 @@ const etapas = document.querySelectorAll(".form-step");
 const stories = document.querySelectorAll(".story");
 const formPresente = document.getElementById("formPresente");
 
+/* =========================
+   FORMULÁRIO EM ETAPAS
+========================= */
+
 function mostrarEtapa() {
   etapas.forEach(function(etapa) {
     etapa.classList.remove("active");
@@ -16,11 +20,24 @@ function mostrarEtapa() {
   const progressFill = document.getElementById("progressFill");
 
   if (etapaTexto && progressFill) {
-    etapaTexto.textContent = "Etapa " + (etapaAtual + 1) + " de " + etapas.length;
+    etapaTexto.textContent =
+      "Etapa " + (etapaAtual + 1) + " de " + etapas.length;
 
-    const progresso = ((etapaAtual + 1) / etapas.length) * 100;
+    const progresso =
+      ((etapaAtual + 1) / etapas.length) * 100;
+
     progressFill.style.width = progresso + "%";
   }
+}
+
+function proximaEtapa() {
+  etapaAtual++;
+
+  if (etapaAtual >= etapas.length) {
+    etapaAtual = etapas.length - 1;
+  }
+
+  mostrarEtapa();
 }
 
 function voltarEtapa() {
@@ -33,30 +50,53 @@ function voltarEtapa() {
   mostrarEtapa();
 }
 
+/* =========================
+   SALVAR DADOS DO PRESENTE
+========================= */
+
 if (formPresente) {
   formPresente.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const parceiro1 = document.getElementById("parceiro1").value;
-    const parceiro2 = document.getElementById("parceiro2").value;
+    const parceiro1 =
+      document.getElementById("parceiro1").value;
+
+    const parceiro2 =
+      document.getElementById("parceiro2").value;
 
     const dadosPresente = {
       nomeCasal: parceiro1 + " & " + parceiro2,
+
       parceiro1: parceiro1,
+
       parceiro2: parceiro2,
-      historia: document.getElementById("historia").value,
-      musica: document.getElementById("musica").value,
-      momento: document.getElementById("momento").value
+
+      historia:
+        document.getElementById("historia").value,
+
+      musica:
+        document.getElementById("musica").value,
+
+      momento:
+        document.getElementById("momento").value
     };
 
-    localStorage.setItem("presenteCasal", JSON.stringify(dadosPresente));
+    localStorage.setItem(
+      "presenteCasal",
+      JSON.stringify(dadosPresente)
+    );
 
     window.location.href = "presente.html";
   });
 }
 
+/* =========================
+   CARREGAR STORIES
+========================= */
+
 function carregarPresente() {
-  const dadosSalvos = localStorage.getItem("presenteCasal");
+  const dadosSalvos =
+    localStorage.getItem("presenteCasal");
 
   if (!dadosSalvos) {
     return;
@@ -64,18 +104,44 @@ function carregarPresente() {
 
   const dados = JSON.parse(dadosSalvos);
 
-  const storyNomeCasal = document.getElementById("storyNomeCasal");
-  const storyHistoria = document.getElementById("storyHistoria");
-  const storyMusica = document.getElementById("storyMusica");
-  const storyMomento = document.getElementById("storyMomento");
+  const storyNomeCasal =
+    document.getElementById("storyNomeCasal");
+
+  const storyHistoria =
+    document.getElementById("storyHistoria");
+
+  const storyMusica =
+    document.getElementById("storyMusica");
+
+  const storyMomento =
+    document.getElementById("storyMomento");
 
   if (storyNomeCasal) {
-    storyNomeCasal.textContent = dados.nomeCasal;
-    storyHistoria.textContent = dados.historia;
-    storyMusica.textContent = dados.musica || "A música de vocês ainda será escolhida ❤️";
-    storyMomento.textContent = dados.momento || "Um momento especial que ficará guardado para sempre.";
+    storyNomeCasal.textContent =
+      dados.nomeCasal;
+  }
+
+  if (storyHistoria) {
+    storyHistoria.textContent =
+      dados.historia;
+  }
+
+  if (storyMusica) {
+    storyMusica.textContent =
+      dados.musica ||
+      "A música de vocês ainda será escolhida ❤️";
+  }
+
+  if (storyMomento) {
+    storyMomento.textContent =
+      dados.momento ||
+      "Um momento especial que ficará guardado para sempre.";
   }
 }
+
+/* =========================
+   STORIES
+========================= */
 
 function proximoStory() {
   stories[storyAtual].classList.remove("active");
@@ -89,20 +155,38 @@ function proximoStory() {
   stories[storyAtual].classList.add("active");
 }
 
+/* =========================
+   CLIQUE NA TELA
+========================= */
+
 document.addEventListener("click", function(event) {
-  const clicouNoBotao = event.target.tagName === "BUTTON";
+
+  const clicouNoBotao =
+    event.target.tagName === "BUTTON";
 
   if (stories.length === 0) {
     return;
   }
 
+  /* Primeiro story:
+     só avança no botão */
   if (storyAtual === 0 && !clicouNoBotao) {
     return;
   }
 
+  /* Outros stories:
+     clique na tela avança */
   if (!clicouNoBotao) {
     proximoStory();
   }
 });
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+if (etapas.length > 0) {
+  mostrarEtapa();
+}
 
 carregarPresente();
