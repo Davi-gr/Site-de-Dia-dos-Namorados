@@ -14,7 +14,13 @@ function proximoStory() {
 }
 
 document.addEventListener("click", function(event) {
-  if (event.target.tagName !== "BUTTON") {
+  const clicouNoBotao = event.target.tagName === "BUTTON";
+
+  if (storyAtual === 0 && !clicouNoBotao) {
+    return;
+  }
+
+  if (!clicouNoBotao) {
     proximoStory();
   }
 });
