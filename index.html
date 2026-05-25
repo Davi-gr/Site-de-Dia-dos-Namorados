@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nosso Amor ❤️</title>
@@ -24,12 +26,65 @@
 
   <!--Nossa música-->
   <section class="musica">
-    <audio id="musica" src="musica.mp3"></audio>
 
-    <button id="botaoMusica">
-      Tocar nossa música
-    </button>
-  </section>
+  <div class="spotify-player">
+
+    <div class="music-player">
+
+      <img class="bg" />
+
+      <div class="player-center">
+        <div class="poster-container"></div>
+      </div>
+
+      <div class="player-footer">
+
+        <div class="music-info">
+
+          <div class="names">
+            <p class="music-name"></p>
+            <p class="artist-name"></p>
+          </div>
+
+        </div>
+
+        <div class="music-timebar">
+
+          <div class="timebar">
+            <div class="music-current-length"></div>
+            <div class="music-current-length-circle"></div>
+          </div>
+
+          <div class="music-time">
+            <div class="music-current-time">0:00</div>
+            <div class="music-duration-time">0:00</div>
+          </div>
+
+        </div>
+
+        <div class="music-controls">
+
+          <audio class="audio"></audio>
+
+          <div class="main-control">
+
+            <i class="fa fa-step-backward back-btn"></i>
+
+            <i class="fa fa-play-circle play-btn"></i>
+
+            <i class="fa fa-step-forward forward-btn"></i>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
   <!-- MENSAGEM -->
 
