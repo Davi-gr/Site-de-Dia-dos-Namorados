@@ -1,20 +1,16 @@
-let storyAtual = 0;
-const stories = document.querySelectorAll(".story");
+const botaoMusica = document.getElementById("botaoMusica");
+const musica = document.getElementById("musica");
 
-function proximoStory() {
-  stories[storyAtual].classList.remove("active");
+let tocando = false;
 
-  storyAtual++;
-
-  if (storyAtual >= stories.length) {
-    storyAtual = 0;
-  }
-
-  stories[storyAtual].classList.add("active");
-}
-
-document.addEventListener("click", function(event) {
-  if (event.target.tagName !== "BUTTON") {
-    proximoStory();
+botaoMusica.addEventListener("click", function() {
+  if (tocando === false) {
+    musica.play();
+    botaoMusica.textContent = "Pausar música";
+    tocando = true;
+  } else {
+    musica.pause();
+    botaoMusica.textContent = "Tocar nossa música";
+    tocando = false;
   }
 });
