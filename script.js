@@ -244,3 +244,20 @@ audio.addEventListener("ended", () => {
   nextMusic();
 
 });
+
+/* LINHA DO TEMPO */
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+function mostrarTimeline() {
+  timelineItems.forEach(function(item) {
+    const posicao = item.getBoundingClientRect().top;
+    const alturaTela = window.innerHeight;
+
+    if (posicao < alturaTela - 120) {
+      item.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", mostrarTimeline);
+mostrarTimeline();

@@ -336,3 +336,140 @@ button {
 .play-btn {
   font-size: 4rem !important;
 }
+
+/* LINHA DO TEMPO COM FOTOS */
+
+.timeline {
+  min-height: 160vh;
+  padding: 100px 25px;
+}
+
+.timeline h2 {
+  font-size: 2.5rem;
+  margin-bottom: 80px;
+}
+
+.timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff4f81, #ffffff, #7b2cbf);
+  transform: translateX(-50%);
+  border-radius: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 0.8s ease;
+}
+
+.timeline-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-img,
+.timeline-text {
+  width: 45%;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-img img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 0 30px rgba(255, 79, 129, 0.35);
+}
+
+.timeline-text {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 28px;
+  border-radius: 22px;
+  text-align: left;
+  backdrop-filter: blur(8px);
+}
+
+.timeline-text span {
+  color: #ff8fab;
+  font-weight: bold;
+}
+
+.timeline-text h3 {
+  font-size: 1.7rem;
+  margin: 10px 0;
+}
+
+.timeline-text p {
+  line-height: 1.6;
+  color: #eee;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  background: #ff4f81;
+  border: 4px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  box-shadow: 0 0 20px #ff4f81;
+}
+
+/* Responsivo para celular */
+
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 20px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    padding-left: 50px;
+    margin-bottom: 80px;
+  }
+
+  .timeline-img,
+  .timeline-text {
+    width: 100%;
+  }
+
+  .timeline-item::before {
+    left: 20px;
+    top: 40px;
+  }
+
+  .timeline-img img {
+    height: 260px;
+  }
+}
