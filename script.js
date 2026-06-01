@@ -328,16 +328,19 @@ atualizarContadorAmor();
 const momentos = {
   viagens: [
     {
+      tipo: "foto",
       foto: "fotos/viagem1.jpg",
       titulo: "Viagens",
       legenda: "Nossa primeira aventura juntos."
     },
-    {
+    { 
+      tipo: "foto",
       foto: "fotos/viagem2.jpg",
       titulo: "Viagens",
       legenda: "Um lugar que ficou marcado na nossa história."
     },
-    {
+    { 
+      tipo: "foto",
       foto: "fotos/viagem3.jpg",
       titulo: "Viagens",
       legenda: "Mais uma lembrança linda ao seu lado."
@@ -346,16 +349,19 @@ const momentos = {
 
   comidas: [
     {
+      tipo: "foto",
       foto: "fotos/comida1.jpg",
       titulo: "Comidas",
       legenda: "Nossos momentos provando coisas boas."
     },
     {
+      tipo: "foto",
       foto: "fotos/comida2.jpg",
       titulo: "Comidas",
       legenda: "Comida boa fica melhor com você."
     },
     {
+      tipo: "foto",
       foto: "fotos/comida3.jpg",
       titulo: "Comidas",
       legenda: "Um dos nossos rolês mais gostosos."
@@ -364,16 +370,19 @@ const momentos = {
 
   aleatorias: [
     {
+      tipo: "foto",
       foto: "fotos/aleatoria1.jpg",
       titulo: "Fotos aleatórias",
       legenda: "Uma das minhas fotos preferidas."
     },
     {
+      tipo: "foto",
       foto: "fotos/aleatoria2.jpg",
       titulo: "Fotos aleatórias",
       legenda: "Esse sorriso sempre vai ser meu favorito."
     },
     {
+      tipo: "foto",
       foto: "fotos/aleatoria3.jpg",
       titulo: "Fotos aleatórias",
       legenda: "Um momento simples, mas especial."
@@ -387,6 +396,7 @@ let storyTimer;
 
 const storiesModal = document.getElementById("storiesModal");
 const storyFoto = document.getElementById("storyFoto");
+const storyVideo = document.getElementById("storyVideo");
 const storyTitulo = document.getElementById("storyTitulo");
 const storyLegenda = document.getElementById("storyLegenda");
 const storyProgress = document.getElementById("storyProgress");
@@ -409,15 +419,34 @@ function mostrarFotoStory() {
 
   const item = momentoAtual[fotoAtual];
 
-  storyFoto.src = item.foto;
   storyTitulo.textContent = item.titulo;
   storyLegenda.textContent = item.legenda;
 
   montarBarras();
 
-  storyTimer = setTimeout(function() {
-    proximaFotoStory();
-  }, 4000);
+  if (item.tipo === "video") {
+    storyFoto.style.display = "none";
+    storyVideo.style.display = "block";
+
+    storyVideo.src = item.src;
+    storyVideo.currentTime = 0;
+    storyVideo.play();
+
+    storyVideo.onended = function() {
+      proximaFotoStory();
+    };
+
+  } else {
+    storyVideo.pause();
+    storyVideo.style.display = "none";
+    storyFoto.style.display = "block";
+
+    storyFoto.src = item.src;
+
+    storyTimer = setTimeout(function() {
+      proximaFotoStory();
+    }, 4000);
+  }
 }
 
 function montarBarras() {
