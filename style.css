@@ -337,6 +337,135 @@ button {
   font-size: 4rem !important;
 }
 
+/* CARTA */
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.corpo-envelope {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: #ff8fab;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 0 30px rgba(255, 143, 171, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  
+}
+.corpo-envelope span {
+   margin-top: 80px;
+  position: relative;
+  z-index: 4;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.aba {
+  position: absolute;
+  top: 48px;
+  width: 100%;
+  height: 150px;
+  background: #ff4f81;
+  clip-path: polygon(0 0, 50% 70%, 100% 0);
+  z-index: 2;
+  
+}
+
+.carta-aberta {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 0, 6, 0.92);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.carta-aberta.active {
+  display: flex;
+}
+
+.papel-carta {
+  width: min(600px, 90vw);
+  min-height: 420px;
+  padding: 45px 35px;
+  background: #fff7e6;
+  color: #3b1f1f;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
+  font-family: Georgia, serif;
+  text-align: left;
+  animation: abrirPapel 0.45s ease;
+}
+
+.papel-carta h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #7b2cbf;
+}
+
+.papel-carta p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.fechar-carta {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+  z-index: 1000;
+
+  transition: all 0.25s ease;
+}
+
+@keyframes abrirPapel {
+  from {
+    transform: scale(0.8) translateY(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+
 /* LINHA DO TEMPO COM FOTOS */
 
 .timeline {

@@ -245,6 +245,21 @@ audio.addEventListener("ended", () => {
 
 });
 
+//--------------//
+//MENSAGEM EM CARTA
+//--------------//
+
+function abrirCarta() {
+  const carta = document.getElementById("cartaAberta");
+  carta.classList.add("active");
+}
+
+function fecharCarta() {
+  const carta = document.getElementById("cartaAberta");
+  carta.classList.remove("active");
+}
+
+
 /* LINHA DO TEMPO */
 const timelineItems = document.querySelectorAll(".timeline-item");
 
