@@ -153,27 +153,54 @@
 
 </section>
 
-  <!-- GALERIA -->
+<!--GALERIA DE FOTOS POR MOMENTOS-->
 
-  <section class="galeria">
+ <section class="galeria">
 
-    <h2>
-      Nossos momentos 📸
-    </h2>
+  <h2>Nossos momentos 📸</h2>
 
-    <div class="fotos">
+  <div class="momentos-grid">
 
-      <img src="foto1.jpg" alt="Foto do casal">
-
-      <img src="foto2.jpg" alt="Foto do casal">
-
-      <img src="foto3.jpg" alt="Foto do casal">
-
-      <img src="foto4.jpg" alt="Foto do casal">
-
+    <div class="momento-card" onclick="abrirMomento('viagens')">
+      <img src="fotos/viagem1.jpg" alt="Viagens">
+      <div>
+        <h3>Viagens</h3>
+        <p>Nossas aventuras juntos</p>
+      </div>
     </div>
 
-  </section>
+    <div class="momento-card" onclick="abrirMomento('comidas')">
+      <img src="fotos/comida1.jpg" alt="Comidas">
+      <div>
+        <h3>Comidas</h3>
+        <p>Nossos momentos gastronômicos</p>
+      </div>
+    </div>
+
+    <div class="momento-card" onclick="abrirMomento('aleatorias')">
+      <img src="fotos/aleatoria1.jpg" alt="Fotos aleatórias">
+      <div>
+        <h3>Fotos aleatórias</h3>
+        <p>Nossas fotos preferidas</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="stories-modal" id="storiesModal">
+  <button class="fechar-stories" onclick="fecharMomento()">×</button>
+
+  <div class="story-progress" id="storyProgress"></div>
+
+  <img id="storyFoto" src="" alt="Foto do momento">
+
+  <div class="story-info">
+    <h3 id="storyTitulo"></h3>
+    <p id="storyLegenda"></p>
+  </div>
+</div>
 
   <!-- CARTA FINAL -->
 

@@ -261,3 +261,142 @@ function mostrarTimeline() {
 
 window.addEventListener("scroll", mostrarTimeline);
 mostrarTimeline();
+
+//------------------//
+//MOMENTOS DE FOTOS //
+//-----------------//
+const momentos = {
+  viagens: [
+    {
+      foto: "fotos/viagem1.jpg",
+      titulo: "Viagens",
+      legenda: "Nossa primeira aventura juntos."
+    },
+    {
+      foto: "fotos/viagem2.jpg",
+      titulo: "Viagens",
+      legenda: "Um lugar que ficou marcado na nossa história."
+    },
+    {
+      foto: "fotos/viagem3.jpg",
+      titulo: "Viagens",
+      legenda: "Mais uma lembrança linda ao seu lado."
+    }
+  ],
+
+  comidas: [
+    {
+      foto: "fotos/comida1.jpg",
+      titulo: "Comidas",
+      legenda: "Nossos momentos provando coisas boas."
+    },
+    {
+      foto: "fotos/comida2.jpg",
+      titulo: "Comidas",
+      legenda: "Comida boa fica melhor com você."
+    },
+    {
+      foto: "fotos/comida3.jpg",
+      titulo: "Comidas",
+      legenda: "Um dos nossos rolês mais gostosos."
+    }
+  ],
+
+  aleatorias: [
+    {
+      foto: "fotos/aleatoria1.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: "Uma das minhas fotos preferidas."
+    },
+    {
+      foto: "fotos/aleatoria2.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: "Esse sorriso sempre vai ser meu favorito."
+    },
+    {
+      foto: "fotos/aleatoria3.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: "Um momento simples, mas especial."
+    }
+  ]
+};
+
+let momentoAtual = [];
+let fotoAtual = 0;
+let storyTimer;
+
+const storiesModal = document.getElementById("storiesModal");
+const storyFoto = document.getElementById("storyFoto");
+const storyTitulo = document.getElementById("storyTitulo");
+const storyLegenda = document.getElementById("storyLegenda");
+const storyProgress = document.getElementById("storyProgress");
+
+function abrirMomento(tipo) {
+  momentoAtual = momentos[tipo];
+  fotoAtual = 0;
+
+  storiesModal.style.display = "flex";
+
+  setTimeout(function() {
+    storiesModal.classList.add("active");
+  }, 10);
+
+  mostrarFotoStory();
+}
+
+function mostrarFotoStory() {
+  clearTimeout(storyTimer);
+
+  const item = momentoAtual[fotoAtual];
+
+  storyFoto.src = item.foto;
+  storyTitulo.textContent = item.titulo;
+  storyLegenda.textContent = item.legenda;
+
+  montarBarras();
+
+  storyTimer = setTimeout(function() {
+    proximaFotoStory();
+  }, 4000);
+}
+
+function montarBarras() {
+  storyProgress.innerHTML = "";
+
+  momentoAtual.forEach(function(_, index) {
+    const barra = document.createElement("span");
+
+    if (index < fotoAtual) {
+      barra.classList.add("done");
+    }
+
+    if (index === fotoAtual) {
+      barra.classList.add("active");
+    }
+
+    storyProgress.appendChild(barra);
+  });
+}
+
+function proximaFotoStory() {
+  fotoAtual++;
+
+  if (fotoAtual >= momentoAtual.length) {
+    fecharMomento();
+    return;
+  }
+
+  mostrarFotoStory();
+}
+
+function fecharMomento() {
+  clearTimeout(storyTimer);
+
+  storiesModal.classList.remove("active");
+
+  setTimeout(function() {
+    storiesModal.style.display = "none";
+  }, 250);
+}
+
+storyFoto.addEventListener("click", proximaFotoStory);

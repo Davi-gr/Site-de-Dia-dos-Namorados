@@ -473,3 +473,189 @@ button {
     height: 260px;
   }
 }
+
+/* GALERIA POR MOMENTOS */
+
+.galeria {
+  min-height: 100vh;
+  padding: 100px 25px;
+}
+
+.galeria h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.momentos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.momento-card {
+  position: relative;
+  height: 420px;
+  border-radius: 26px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 79, 129, 0.25);
+  transform: scale(1);
+  transition: 0.3s ease;
+}
+
+.momento-card:hover {
+  transform: scale(1.04);
+}
+
+.momento-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.momento-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.momento-card div {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 25px;
+  z-index: 2;
+  text-align: left;
+}
+
+.momento-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.momento-card p {
+  color: #ddd;
+}
+
+/* MODAL STORIES */
+
+.stories-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 0, 6, 0.96);
+  z-index: 999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+
+  transform: scale(0.85);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.stories-modal.active {
+  display: flex;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.stories-modal img {
+  width: min(420px, 90vw);
+  height: min(720px, 80vh);
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 0 35px rgba(255, 79, 129, 0.4);
+  cursor: pointer;
+}
+
+.fechar-stories {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 2rem;
+  z-index: 1000;
+}
+
+.story-info {
+  position: fixed;
+  bottom: 45px;
+  width: min(420px, 90vw);
+  text-align: left;
+  padding: 20px;
+  pointer-events: none;
+}
+
+.story-info h3 {
+  font-size: 1.5rem;
+}
+
+.story-info p {
+  color: #eee;
+  margin-top: 6px;
+}
+
+.story-progress {
+  position: fixed;
+  top: 25px;
+  width: min(420px, 90vw);
+  display: flex;
+  gap: 6px;
+  z-index: 1000;
+}
+
+.story-progress span {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.story-progress span::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: white;
+}
+
+.story-progress span.active::before {
+  animation: preencherStory 4s linear forwards;
+}
+
+.story-progress span.done::before {
+  width: 100%;
+}
+
+@keyframes preencherStory {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+  .momentos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .momento-card {
+    height: 360px;
+  }
+}
