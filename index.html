@@ -190,8 +190,7 @@
 </section>
 
 <div class="stories-modal" id="storiesModal">
-  <button class="fechar-stories" onclick="fecharMomento()">×</button>
-
+  <button class="fechar-stories" onclick="fecharMomento()">&times;</button>
   <div class="story-progress" id="storyProgress"></div>
 
   <img id="storyFoto" src="" alt="Foto do momento">
@@ -202,22 +201,75 @@
   </div>
 </div>
 
-  <!-- CARTA FINAL -->
+  <!-- PRESENTE FINAL -->
 
-  <section class="carta">
+  <section class="ultimo-presente">
+  <h2>Último Presente ✨</h2>
 
-    <h2>
-      Uma última mensagem ❤️
-    </h2>
+  <p>Espero que goste, demorou pra fazer</p>
 
-    <p>
-      Obrigado por fazer parte da minha vida.
-      Independente do que aconteça,
-      todos os momentos ao seu lado
-      sempre serão especiais para mim.
-    </p>
+  <button class="abrir-presente" onclick="abrirCeuEspecial()">
+    Abrir presente final
+  </button>
+</section>
 
-  </section>
+<div class="ceu-modal" id="ceuModal">
+  <button class="fechar-ceu" onclick="fecharCeuEspecial()">&times;</button>
+
+  <div class="ceu-conteudo">
+
+    <div class="ceu-lado">
+      <h3>O céu no dia em que nossos mundos se colidiram</h3>
+      <span>11 de dezembro de 2024</span>
+
+      <div class="mapa-orion">
+        <img src="imagens/orion-ceu-site.png" alt="Céu com Órion">
+
+<svg class="orion-linhas" viewBox="0 0 900 900">
+  <line x1="300" y1="300" x2="535" y2="350" />
+  <line x1="535" y1="350" x2="705" y2="170" />
+  <line x1="590" y1="435" x2="770" y2="520" />
+  <line x1="340" y1="630" x2="590" y2="435" />
+  <line x1="300" y1="300" x2="340" y2="630" />
+
+  <line x1="535" y1="350" x2="560" y2="390" />
+  <line x1="560" y1="390" x2="590" y2="435" />
+
+  <line x1="560" y1="390" x2="575" y2="500" />
+  <line x1="575" y1="500" x2="555" y2="555" />
+
+  <circle cx="300" cy="300" r="7" />
+  <circle cx="705" cy="170" r="8" />
+  <circle cx="770" cy="520" r="7" />
+  <circle cx="340" cy="630" r="8" />
+
+  <circle cx="535" cy="350" r="6" />
+  <circle cx="560" cy="390" r="6" />
+  <circle cx="590" cy="435" r="6" />
+
+  <circle cx="575" cy="500" r="4" />
+  <circle cx="555" cy="555" r="4" />
+</svg>
+
+        <p class="texto-orion">Órion iluminava o céu naquela <br>noite...</p>
+      </div>
+    </div>
+
+    <div class="lua-lado">
+      <img class="lua-realista" src="imagens/lua.png" alt="Lua daquele dia">
+
+      <h3>Lua Gibosa Crescente</h3>
+      <span>85% iluminada</span>
+
+      <p>
+        Naquela noite, a lua ainda estava crescendo. E talvez esse tenha sido
+        o sinal mais bonito: assim como ela, nossa história também estava apenas
+        começando a ganhar luz, forma e intensidade.
+      </p>
+    </div>
+
+  </div>
+</div>
 
   <script src="script.js"></script>
 

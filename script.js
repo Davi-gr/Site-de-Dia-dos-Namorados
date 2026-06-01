@@ -383,7 +383,6 @@ function proximaFotoStory() {
 
   if (fotoAtual >= momentoAtual.length) {
     fecharMomento();
-    return;
   }
 
   mostrarFotoStory();
@@ -400,3 +399,28 @@ function fecharMomento() {
 }
 
 storyFoto.addEventListener("click", proximaFotoStory);
+
+//---------------//
+//ÚLTIMO PRESENTE//
+//---------------//
+
+function abrirCeuEspecial() {
+  const ceuModal = document.getElementById("ceuModal");
+
+  ceuModal.style.display = "flex";
+
+  setTimeout(function() {
+    ceuModal.classList.add("active");
+  }, 10);
+}
+
+function fecharCeuEspecial() {
+  const ceuModal = document.getElementById("ceuModal");
+
+  ceuModal.classList.remove("active");
+
+  setTimeout(function() {
+    ceuModal.style.display = "none";
+  }, 350);
+}
+

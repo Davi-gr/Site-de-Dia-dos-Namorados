@@ -580,11 +580,34 @@ button {
   position: fixed;
   top: 20px;
   right: 25px;
-  width: 45px;
-  height: 45px;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border-radius: 50%;
-  font-size: 2rem;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
   z-index: 1000;
+
+  transition: all 0.25s ease;
+}
+
+.fechar-stories:hover {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.15);
 }
 
 .story-info {
@@ -657,5 +680,320 @@ button {
 
   .momento-card {
     height: 360px;
+  }
+}
+
+/* ÚLTIMO PRESENTE */
+
+.ultimo-presente {
+  min-height: 100vh;
+  padding: 100px 25px;
+}
+
+.ultimo-presente h2 {
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+}
+
+.ultimo-presente p {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  color: #eee;
+}
+
+.abrir-presente {
+  padding: 16px 34px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 143, 171, 0.8);
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 143, 171, 0.25);
+  animation: pulsarPresente 2.8s ease-in-out infinite;
+}
+
+@keyframes pulsarPresente {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(255, 143, 171, 0.25);
+  }
+
+  50% {
+    transform: scale(1.035);
+    box-shadow: 0 0 38px rgba(255, 143, 171, 0.45);
+  }
+}
+
+/* MODAL */
+
+.ceu-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(2, 0, 6, 0.96);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.ceu-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.fechar-ceu {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+  z-index: 10000;
+
+  transition: all 0.25s ease;
+}
+
+.fechar-ceu:hover {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.15);
+}
+
+.ceu-conteudo {
+  width: min(1100px, 95vw);
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 35px;
+  padding: 35px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 45px rgba(255, 143, 171, 0.18);
+  transform: scale(0.94);
+  transition: transform 0.45s ease;
+}
+
+.ceu-modal.active .ceu-conteudo {
+  transform: scale(1);
+}
+
+.ceu-lado,
+.lua-lado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ceu-lado h3,
+.lua-lado h3 {
+  font-size: 1.7rem;
+  color: #ffb3c6;
+  margin-bottom: 8px;
+}
+
+.ceu-lado span,
+.lua-lado span {
+  color: #ddd;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+/* MAPA DE ÓRION */
+
+.mapa-orion {
+  position: relative;
+  width: min(520px, 88vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 30px auto;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 0 40px rgba(255, 255, 255, 0.12),
+    0 0 60px rgba(255, 143, 171, 0.18);
+  animation: respirarCeu 6s ease-in-out infinite;
+}
+
+@keyframes respirarCeu {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.015);
+  }
+}
+
+.mapa-orion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orion-linhas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.orion-linhas line {
+  stroke: rgba(247, 247, 247, 0.902);
+  stroke-width: 2;
+  stroke-linecap: round;
+  /*filter: drop-shadow(0 0 6px rgba(255, 180, 210, 0.9));*/
+
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.orion-linhas circle {
+  fill: white;
+  opacity: 0;
+  filter: drop-shadow(0 0 8px white);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.ceu-modal.active .orion-linhas line {
+  animation: desenharOrion 8s ease forwards;
+}
+
+.ceu-modal.active .orion-linhas line:nth-of-type(1) { animation-delay: 0.4s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(2) { animation-delay: 1s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(3) { animation-delay: 1.6s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(4) { animation-delay: 1s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(5) { animation-delay: 0.4s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(6) { animation-delay: 1.6s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(7) { animation-delay: 2.2s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(8) { animation-delay: 2.2s; }
+.ceu-modal.active .orion-linhas line:nth-of-type(9) { animation-delay: 2.7s; }
+
+.ceu-modal.active .orion-linhas circle {
+  animation: acenderEstrela 1.2s ease forwards;
+}
+
+.ceu-modal.active .orion-linhas circle:nth-of-type(1) { animation-delay: 0.2s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(2) { animation-delay: 0.45s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(3) { animation-delay: 0.7s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(4) { animation-delay: 0.95s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(5) { animation-delay: 1.2s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(6) { animation-delay: 1.45s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(7) { animation-delay: 1.7s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(8) { animation-delay: 1.95s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(9) { animation-delay: 2.2s; }
+.ceu-modal.active .orion-linhas circle:nth-of-type(10) { animation-delay: 2.45s; }
+
+.texto-orion {
+  position: absolute;
+  bottom: 35px;
+  left: 25px;
+  right: 25px;
+  text-align: center;
+  opacity: 0;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.ceu-modal.active .texto-orion {
+  animation: surgirTextoOrion 1.3s ease forwards;
+  animation-delay: 4s;
+}
+
+@keyframes desenharOrion {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes acenderEstrela {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.25);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes surgirTextoOrion {
+  to {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
+
+/* LUA */
+
+.lua-realista {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 45px 0 30px;
+  box-shadow:
+    0 0 35px rgba(255, 255, 255, 0.45),
+    0 0 90px rgba(255, 255, 255, 0.18);
+}
+
+.lua-lado p {
+  max-width: 420px;
+  line-height: 1.7;
+  color: #eee;
+  font-size: 1.05rem;
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+  .ceu-modal {
+    overflow-y: auto;
+    align-items: flex-start;
+  }
+
+  .ceu-conteudo {
+    grid-template-columns: 1fr;
+    padding: 28px 20px;
+    margin-top: 70px;
+  }
+
+  .lua-realista {
+    width: 180px;
+    height: 180px;
   }
 }
