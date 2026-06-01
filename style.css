@@ -465,6 +465,81 @@ button {
   }
 }
 
+/* CONTADOR DE TEMPO */
+
+.contador-amor {
+  min-height: 100vh;
+  padding: 100px 25px;
+}
+
+.contador-amor h2 {
+  font-size: 2.7rem;
+  margin-bottom: 45px;
+}
+
+.contador-card {
+  width: min(900px, 95vw);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+
+  padding: 35px;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 0 35px rgba(255, 79, 129, 0.22);
+}
+
+.tempo-box {
+  padding: 28px 18px;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 79, 129, 0.24),
+    rgba(123, 44, 191, 0.2)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.tempo-box span {
+  display: block;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff8fab;
+  text-shadow: 0 0 18px rgba(255, 143, 171, 0.45);
+}
+
+.tempo-box p {
+  margin-top: 8px;
+  color: #eee;
+  font-size: 1rem;
+}
+
+.contador-frase {
+  margin-top: 35px;
+  max-width: 650px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #eee;
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+  .contador-card {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 25px;
+  }
+
+  .tempo-box span {
+    font-size: 2.4rem;
+  }
+}
 
 /* LINHA DO TEMPO COM FOTOS */
 

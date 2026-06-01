@@ -277,6 +277,51 @@ function mostrarTimeline() {
 window.addEventListener("scroll", mostrarTimeline);
 mostrarTimeline();
 
+/* CONTADOR DE TEMPO */
+
+function atualizarContadorAmor() {
+  const inicioNamoro = new Date(2025, 5, 12, 0, 0, 0);
+  const agora = new Date();
+
+  let anos = agora.getFullYear() - inicioNamoro.getFullYear();
+  let meses = agora.getMonth() - inicioNamoro.getMonth();
+  let dias = agora.getDate() - inicioNamoro.getDate();
+
+  if (dias < 0) {
+    meses--;
+
+    const ultimoMes = new Date(
+      agora.getFullYear(),
+      agora.getMonth(),
+      0
+    ).getDate();
+
+    dias += ultimoMes;
+  }
+
+  if (meses < 0) {
+    anos--;
+    meses += 12;
+  }
+
+  const diferenca = agora - inicioNamoro;
+
+  const horas = Math.floor(diferenca / (1000 * 60 * 60)) % 24;
+  const minutos = Math.floor(diferenca / (1000 * 60)) % 60;
+  const segundos = Math.floor(diferenca / 1000) % 60;
+
+  document.getElementById("anos").textContent = anos;
+  document.getElementById("meses").textContent = meses;
+  document.getElementById("dias").textContent = dias;
+  document.getElementById("horas").textContent = horas;
+  document.getElementById("minutos").textContent = minutos;
+  document.getElementById("segundos").textContent = segundos;
+}
+
+setInterval(atualizarContadorAmor, 1000);
+atualizarContadorAmor();
+
+
 //------------------//
 //MOMENTOS DE FOTOS //
 //-----------------//
