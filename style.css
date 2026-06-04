@@ -804,7 +804,7 @@ button {
   line-height: 1;
 
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1001;
 
   transition: all 0.25s ease;
 }
@@ -875,6 +875,27 @@ button {
   }
 }
 
+.story-click-left,
+.story-click-right {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 998;
+}
+
+.story-click-left {
+  left: 0;
+}
+
+.story-click-right {
+  right: 0;
+}
+#storyFoto,
+#storyVideo {
+  touch-action: none;
+  user-select: none;
+}
 /* CELULAR */
 
 @media (max-width: 768px) {
@@ -885,6 +906,10 @@ button {
   .momento-card {
     height: 360px;
   }
+}
+
+.stories-modal.pausado .story-progress span.active::before {
+  animation-play-state: paused;
 }
 
 /* ÚLTIMO PRESENTE */

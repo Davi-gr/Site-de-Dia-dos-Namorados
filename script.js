@@ -329,19 +329,19 @@ const momentos = {
   viagens: [
     {
       tipo: "foto",
-      foto: "fotos/viagem1.jpg",
+      src: "fotos/viagem1.jpg",
       titulo: "Viagens",
       legenda: "Nossa primeira aventura juntos."
     },
     { 
       tipo: "foto",
-      foto: "fotos/viagem2.jpg",
+      src: "fotos/viagem2.jpg",
       titulo: "Viagens",
       legenda: "Um lugar que ficou marcado na nossa história."
     },
     { 
       tipo: "foto",
-      foto: "fotos/viagem3.jpg",
+      src: "fotos/viagem3.jpg",
       titulo: "Viagens",
       legenda: "Mais uma lembrança linda ao seu lado."
     }
@@ -350,19 +350,19 @@ const momentos = {
   comidas: [
     {
       tipo: "foto",
-      foto: "fotos/comida1.jpg",
+      src: "fotos/comida1.jpg",
       titulo: "Comidas",
       legenda: "Nossos momentos provando coisas boas."
     },
     {
       tipo: "foto",
-      foto: "fotos/comida2.jpg",
+      src: "fotos/comida2.jpg",
       titulo: "Comidas",
       legenda: "Comida boa fica melhor com você."
     },
     {
       tipo: "foto",
-      foto: "fotos/comida3.jpg",
+      src: "fotos/comida3.jpg",
       titulo: "Comidas",
       legenda: "Um dos nossos rolês mais gostosos."
     }
@@ -371,28 +371,52 @@ const momentos = {
   aleatorias: [
     {
       tipo: "foto",
-      foto: "fotos/aleatoria1.jpg",
+      src: "fotos/aleatoria1.jpg",
       titulo: "Fotos aleatórias",
       legenda: "Uma das minhas fotos preferidas."
     },
     {
       tipo: "foto",
-      foto: "fotos/aleatoria2.jpg",
+      src: "fotos/aleatoria2.jpg",
       titulo: "Fotos aleatórias",
       legenda: "Esse sorriso sempre vai ser meu favorito."
     },
     {
       tipo: "foto",
-      foto: "fotos/aleatoria3.jpg",
+      src: "fotos/aleatoria3.jpg",
       titulo: "Fotos aleatórias",
       legenda: "Um momento simples, mas especial."
     }
-  ]
+    
+  ],
+  romanticas: [
+  {
+    tipo: "foto",
+    src: "fotos/romantica1.jpg",
+    titulo: "Fotos românticas",
+    legenda: "Um dos nossos momentos mais especiais."
+  },
+  {
+    tipo: "video",
+    src: "videos/romantico1.mp4",
+    titulo: "Fotos românticas",
+    legenda: "Um pedacinho desse momento."
+  },
+  {
+    tipo: "foto",
+    src: "fotos/romantica2.jpg",
+    titulo: "Fotos românticas",
+    legenda: "Você sempre deixa tudo mais bonito."
+  }
+]
 };
 
 let momentoAtual = [];
 let fotoAtual = 0;
 let storyTimer;
+let inicioStory;
+let tempoRestante = 4000;
+let segurandoStory = false;
 
 const storiesModal = document.getElementById("storiesModal");
 const storyFoto = document.getElementById("storyFoto");
@@ -400,6 +424,8 @@ const storyVideo = document.getElementById("storyVideo");
 const storyTitulo = document.getElementById("storyTitulo");
 const storyLegenda = document.getElementById("storyLegenda");
 const storyProgress = document.getElementById("storyProgress");
+const storyClickLeft = document.querySelector(".story-click-left");
+const storyClickRight = document.querySelector(".story-click-right");
 
 function abrirMomento(tipo) {
   momentoAtual = momentos[tipo];
@@ -416,6 +442,7 @@ function abrirMomento(tipo) {
 
 function mostrarFotoStory() {
   clearTimeout(storyTimer);
+  tempoRestante = 4000;
 
   const item = momentoAtual[fotoAtual];
 
@@ -430,7 +457,7 @@ function mostrarFotoStory() {
 
     storyVideo.src = item.src;
     storyVideo.currentTime = 0;
-    storyVideo.play();
+    storyVideo.play().catch(() => {});
 
     storyVideo.onended = function() {
       proximaFotoStory();
@@ -443,9 +470,11 @@ function mostrarFotoStory() {
 
     storyFoto.src = item.src;
 
+    inicioStory = Date.now();
+
     storyTimer = setTimeout(function() {
       proximaFotoStory();
-    }, 4000);
+    }, tempoRestante);
   }
 }
 
@@ -472,6 +501,18 @@ function proximaFotoStory() {
 
   if (fotoAtual >= momentoAtual.length) {
     fecharMomento();
+    return;
+  }
+
+  mostrarFotoStory();
+}
+
+function fotoAnteriorStory() {
+  fotoAtual--;
+
+  if (fotoAtual < 0) {
+    fotoAtual = 0;
+    return;
   }
 
   mostrarFotoStory();
@@ -480,6 +521,9 @@ function proximaFotoStory() {
 function fecharMomento() {
   clearTimeout(storyTimer);
 
+  storyVideo.pause();
+  storyVideo.currentTime = 0;
+
   storiesModal.classList.remove("active");
 
   setTimeout(function() {
@@ -487,7 +531,76 @@ function fecharMomento() {
   }, 250);
 }
 
-storyFoto.addEventListener("click", proximaFotoStory);
+let pressionouEm = 0;
+let pressTimer;
+let storyPausado = false;
+
+function pausarStory() {
+  clearTimeout(storyTimer);
+  storiesModal.classList.add("pausado");
+
+  if (storyVideo.style.display === "block") {
+    storyVideo.pause();
+  } else {
+    tempoRestante -= Date.now() - inicioStory;
+
+    if (tempoRestante < 0) {
+      tempoRestante = 0;
+    }
+  }
+}
+function continuarStory() {
+  storiesModal.classList.remove("pausado");
+
+  if (storyVideo.style.display === "block") {
+    storyVideo.play().catch(() => {});
+  } else {
+    inicioStory = Date.now();
+
+    storyTimer = setTimeout(function() {
+      proximaFotoStory();
+    }, tempoRestante);
+  }
+}
+
+function iniciarPressao() {
+  storyPausado = false;
+  pressionouEm = Date.now();
+
+  pressTimer = setTimeout(function() {
+    storyPausado = true;
+    pausarStory();
+  }, 300);
+}
+
+function finalizarPressao(event) {
+  clearTimeout(pressTimer);
+
+  const tempoPressionado = Date.now() - pressionouEm;
+
+  if (storyPausado || tempoPressionado >= 300) {
+    continuarStory();
+    return;
+  }
+
+  const posicaoClique = event.clientX;
+  const metadeTela = window.innerWidth / 2;
+
+  if (posicaoClique < metadeTela) {
+    fotoAnteriorStory();
+  } else {
+    proximaFotoStory();
+  }
+}
+
+storyClickLeft.addEventListener("pointerdown", iniciarPressao);
+storyClickLeft.addEventListener("pointerup", finalizarPressao);
+
+storyClickRight.addEventListener("pointerdown", iniciarPressao);
+storyClickRight.addEventListener("pointerup", finalizarPressao);
+
+
+
 
 //---------------//
 //ÚLTIMO PRESENTE//
