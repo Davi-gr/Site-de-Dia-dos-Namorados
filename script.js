@@ -335,7 +335,7 @@ const momentos = {
     },
     { 
       tipo: "foto",
-      src: "imagens/Viagens/foto2.jpg",
+      src: "imagens/Viagens/foto2.JPG",
       titulo: "Viagens",
       legenda: "Foto com mais sentimento impossível"
     },
@@ -377,7 +377,7 @@ const momentos = {
     },
     {
       tipo: "foto",
-      src: "imagens/Comidas/foto3.jpg",
+      src: "imagens/Comidas/foto3.JPG",
       titulo: "Comidas",
       legenda: ""
     },
@@ -559,7 +559,7 @@ const momentos = {
   },
   {
     tipo: "foto",
-    src: "imagens/nossas/foto6.jpg",
+    src: "imagens/nossas/foto6.JPG",
     titulo: "Fotos preferidas",
   },
   {
@@ -574,7 +574,7 @@ const momentos = {
   },
   {
     tipo: "foto",
-    src: "imagens/nossas/foto9.jpg",
+    src: "imagens/nossas/foto9.JPG",
     titulo: "Fotos preferidas",
   },
   {
@@ -615,7 +615,7 @@ const momentos = {
   },
   {
     tipo: "foto",
-    src: "imagens/nossas/foto17.jpg",
+    src: "imagens/nossas/foto17.JPG",
     titulo: "Fotos preferidas",
   }
   
