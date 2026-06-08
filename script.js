@@ -734,6 +734,7 @@ function pausarStory() {
   }
 }
 function continuarStory() {
+  clearTimeout(storyTimer);
   storiesModal.classList.remove("pausado");
 
   inicioStory = Date.now();
