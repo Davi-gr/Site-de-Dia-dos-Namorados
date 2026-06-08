@@ -1,23 +1,23 @@
 const musicInfo = [
   {
+    musicName: "Nessas Horas - Ao Vivo",
+    artistName: "Matheus & Kauan",
+    musicSrc: "musicas/musica1.mp3",
+    musicPoster: "capas/capa1.png"
+  },
+
+  {
+    musicName: "The Only Exception",
+    artistName: "Paramore",
+    musicSrc: "musicas/musica2.mp3",
+    musicPoster: "capas/capa2.png"
+  },
+
+  {
     musicName: "Perfect",
     artistName: "Ed Sheeran",
-    musicSrc: "musicas/musica1.mp3",
-    musicPoster: "capas/capa1.jpg"
-  },
-
-  {
-    musicName: "Until I Found You",
-    artistName: "Stephen Sanchez",
-    musicSrc: "musicas/musica2.mp3",
-    musicPoster: "capa2.jpg"
-  },
-
-  {
-    musicName: "Photograph",
-    artistName: "Ed Sheeran",
     musicSrc: "musicas/musica3.mp3",
-    musicPoster: "capas/capa3.jpg"
+    musicPoster: "capas/capa3.png"
   }
 ];
 
