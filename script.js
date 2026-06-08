@@ -329,85 +329,312 @@ const momentos = {
   viagens: [
     {
       tipo: "foto",
-      src: "fotos/viagem1.jpg",
+      src: "imagens/Viagens/foto1.jpg",
       titulo: "Viagens",
-      legenda: "Nossa primeira aventura juntos."
+      legenda: "Nossa primeira viagem juntos"
     },
     { 
       tipo: "foto",
-      src: "fotos/viagem2.jpg",
+      src: "imagens/Viagens/foto2.jpg",
       titulo: "Viagens",
-      legenda: "Um lugar que ficou marcado na nossa história."
+      legenda: "Foto com mais sentimento impossível"
     },
     { 
       tipo: "foto",
-      src: "fotos/viagem3.jpg",
+      src: "imagens/Viagens/foto3.jpg",
       titulo: "Viagens",
-      legenda: "Mais uma lembrança linda ao seu lado."
+      legenda: "Enfrentando seus medos"
+    },
+    { 
+      tipo: "video",
+      src: "imagens/Viagens/video1.mp4",
+      titulo: "Viagens",
+    },
+    { 
+      tipo: "foto",
+      src: "imagens/Viagens/foto4.jpg",
+      titulo: "Viagens",
+    },
+    { 
+      tipo: "foto",
+      src: "imagens/Viagens/foto5.jpg",
+      titulo: "Viagens",
+    },
+    { 
+      tipo: "foto",
+      src: "imagens/Viagens/foto6.jpg",
+      titulo: "Viagens",
     }
   ],
 
   comidas: [
     {
       tipo: "foto",
-      src: "fotos/comida1.jpg",
+      src: "imagens/Comidas/foto1.jpg",
       titulo: "Comidas",
       legenda: "Nossos momentos provando coisas boas."
     },
     {
       tipo: "foto",
-      src: "fotos/comida2.jpg",
+      src: "imagens/Comidas/foto2.jpg",
       titulo: "Comidas",
-      legenda: "Comida boa fica melhor com você."
+      legenda: "chiquinho"
     },
     {
       tipo: "foto",
-      src: "fotos/comida3.jpg",
+      src: "imagens/Comidas/foto3.jpg",
       titulo: "Comidas",
-      legenda: "Um dos nossos rolês mais gostosos."
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/Comidas/foto4.jpg",
+      titulo: "Comidas",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/Comidas/foto5.jpg",
+      titulo: "Comidas",
+      legenda: "Comendo o Lula Molusco"
+    },
+    {
+      tipo: "foto",
+      src: "imagens/Comidas/foto6.jpg",
+      titulo: "Comidas",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/Comidas/foto7.jpg",
+      titulo: "Comidas",
+      legenda: "Janta top no parrilha"
+    },
+    {
+      tipo: "foto",
+      src: "imagens/Comidas/foto8.jpg",
+      titulo: "Comidas",
+      legenda: "Beirutezão de lei"
+    },
+    {
+      tipo: "foto",
+      src: "imagens/Comidas/foto9.jpg",
+      titulo: "Comidas",
+      legenda: "Beirutezão de lei"
     }
   ],
 
   aleatorias: [
     {
       tipo: "foto",
-      src: "fotos/aleatoria1.jpg",
+      src: "imagens/FotosAleatorias/foto1.jpg",
       titulo: "Fotos aleatórias",
-      legenda: "Uma das minhas fotos preferidas."
+      legenda: ""
     },
     {
       tipo: "foto",
-      src: "fotos/aleatoria2.jpg",
+      src: "imagens/FotosAleatorias/foto2.jpg",
       titulo: "Fotos aleatórias",
-      legenda: "Esse sorriso sempre vai ser meu favorito."
+      legenda: ""
     },
     {
       tipo: "foto",
-      src: "fotos/aleatoria3.jpg",
+      src: "imagens/FotosAleatorias/foto3.jpg",
       titulo: "Fotos aleatórias",
-      legenda: "Um momento simples, mas especial."
+      legenda: ""
+    },
+    {
+      tipo: "video",
+      src: "imagens/FotosAleatorias/video1.mp4",
+      titulo: "Fotos aleatórias",
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto5.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto6.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto7.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto8.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto9.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto10.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto11.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto12.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto13.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto14.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto15.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto16.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto17.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "video",
+      src: "imagens/FotosAleatorias/video2.mp4",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto4.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
+    },
+    {
+      tipo: "foto",
+      src: "imagens/FotosAleatorias/foto18.jpg",
+      titulo: "Fotos aleatórias",
+      legenda: ""
     }
     
   ],
   romanticas: [
   {
     tipo: "foto",
-    src: "fotos/romantica1.jpg",
-    titulo: "Fotos românticas",
-    legenda: "Um dos nossos momentos mais especiais."
-  },
-  {
-    tipo: "video",
-    src: "videos/romantico1.mp4",
-    titulo: "Fotos românticas",
-    legenda: "Um pedacinho desse momento."
+    src: "imagens/nossas/foto1.jpg",
+    titulo: "Fotos preferidas",
+    legenda: "Dia que você conheceu meus pais"
   },
   {
     tipo: "foto",
-    src: "fotos/romantica2.jpg",
-    titulo: "Fotos românticas",
-    legenda: "Você sempre deixa tudo mais bonito."
+    src: "imagens/nossas/foto2.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto3.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto4.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto5.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto6.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto7.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto8.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto9.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto10.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto11.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto12.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto13.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto14.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto15.jpg",
+    titulo: "Fotos preferidas",
+    legenda: "Só pq ta gostosa"
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto16.jpg",
+    titulo: "Fotos preferidas",
+  },
+  {
+    tipo: "foto",
+    src: "imagens/nossas/foto17.jpg",
+    titulo: "Fotos preferidas",
   }
+  
 ]
 };
 

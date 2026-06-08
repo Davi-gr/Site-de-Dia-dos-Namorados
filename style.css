@@ -771,13 +771,18 @@ button {
   opacity: 1;
 }
 
-.stories-modal img {
+.stories-modal img,
+.stories-modal video {
   width: min(420px, 90vw);
   height: min(720px, 80vh);
   object-fit: cover;
   border-radius: 28px;
   box-shadow: 0 0 35px rgba(255, 79, 129, 0.4);
   cursor: pointer;
+}
+
+.stories-modal video {
+  display: none;
 }
 
 .fechar-stories {
