@@ -420,7 +420,7 @@ const momentos = {
       tipo: "foto",
       src: "imagens/Comidas/foto9.jpg",
       titulo: "Comidas",
-      legenda: "Beirutezão de lei"
+      legenda: "Quando a comida é boa eu como até a cozinheira"
     }
   ],
 

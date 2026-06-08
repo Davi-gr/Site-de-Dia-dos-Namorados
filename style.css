@@ -1216,6 +1216,10 @@ button {
 
 @media (max-width: 768px) {
   .ceu-modal {
+     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
     overflow-y: auto;
     align-items: flex-start;
   }
@@ -1225,9 +1229,14 @@ button {
     padding: 28px 20px;
     margin-top: 70px;
   }
-
+  .mapa-orion {
+  width: 100%;
+  max-width: 320px;
+  margin: 20px auto;
+  }
   .lua-realista {
-    width: 180px;
+    max-width: 180px;
+    width: 100%;
     height: 180px;
   }
 }
