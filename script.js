@@ -346,11 +346,6 @@ const momentos = {
       legenda: "Enfrentando seus medos"
     },
     { 
-      tipo: "video",
-      src: "imagens/Viagens/video1.mp4",
-      titulo: "Viagens",
-    },
-    { 
       tipo: "foto",
       src: "imagens/Viagens/foto4.jpg",
       titulo: "Viagens",
@@ -444,11 +439,6 @@ const momentos = {
       legenda: ""
     },
     {
-      tipo: "video",
-      src: "imagens/FotosAleatorias/video1.mp4",
-      titulo: "Fotos aleatórias",
-    },
-    {
       tipo: "foto",
       src: "imagens/FotosAleatorias/foto5.jpg",
       titulo: "Fotos aleatórias",
@@ -523,12 +513,6 @@ const momentos = {
     {
       tipo: "foto",
       src: "imagens/FotosAleatorias/foto17.jpg",
-      titulo: "Fotos aleatórias",
-      legenda: ""
-    },
-    {
-      tipo: "video",
-      src: "imagens/FotosAleatorias/video2.mp4",
       titulo: "Fotos aleatórias",
       legenda: ""
     },
@@ -647,7 +631,6 @@ let segurandoStory = false;
 
 const storiesModal = document.getElementById("storiesModal");
 const storyFoto = document.getElementById("storyFoto");
-const storyVideo = document.getElementById("storyVideo");
 const storyTitulo = document.getElementById("storyTitulo");
 const storyLegenda = document.getElementById("storyLegenda");
 const storyProgress = document.getElementById("storyProgress");
@@ -673,36 +656,17 @@ function mostrarFotoStory() {
 
   const item = momentoAtual[fotoAtual];
 
+  storyFoto.src = item.src;
   storyTitulo.textContent = item.titulo;
-  storyLegenda.textContent = item.legenda;
+  storyLegenda.textContent = item.legenda || "";
 
   montarBarras();
 
-  if (item.tipo === "video") {
-    storyFoto.style.display = "none";
-    storyVideo.style.display = "block";
+  inicioStory = Date.now();
 
-    storyVideo.src = item.src;
-    storyVideo.currentTime = 0;
-    storyVideo.play().catch(() => {});
-
-    storyVideo.onended = function() {
-      proximaFotoStory();
-    };
-
-  } else {
-    storyVideo.pause();
-    storyVideo.style.display = "none";
-    storyFoto.style.display = "block";
-
-    storyFoto.src = item.src;
-
-    inicioStory = Date.now();
-
-    storyTimer = setTimeout(function() {
-      proximaFotoStory();
-    }, tempoRestante);
-  }
+  storyTimer = setTimeout(function() {
+    proximaFotoStory();
+  }, tempoRestante);
 }
 
 function montarBarras() {
@@ -748,9 +712,6 @@ function fotoAnteriorStory() {
 function fecharMomento() {
   clearTimeout(storyTimer);
 
-  storyVideo.pause();
-  storyVideo.currentTime = 0;
-
   storiesModal.classList.remove("active");
 
   setTimeout(function() {
@@ -766,28 +727,20 @@ function pausarStory() {
   clearTimeout(storyTimer);
   storiesModal.classList.add("pausado");
 
-  if (storyVideo.style.display === "block") {
-    storyVideo.pause();
-  } else {
-    tempoRestante -= Date.now() - inicioStory;
+  tempoRestante -= Date.now() - inicioStory;
 
-    if (tempoRestante < 0) {
-      tempoRestante = 0;
-    }
+  if (tempoRestante < 0) {
+    tempoRestante = 0;
   }
 }
 function continuarStory() {
   storiesModal.classList.remove("pausado");
 
-  if (storyVideo.style.display === "block") {
-    storyVideo.play().catch(() => {});
-  } else {
-    inicioStory = Date.now();
+  inicioStory = Date.now();
 
-    storyTimer = setTimeout(function() {
-      proximaFotoStory();
-    }, tempoRestante);
-  }
+  storyTimer = setTimeout(function() {
+    proximaFotoStory();
+  }, tempoRestante);
 }
 
 function iniciarPressao() {
